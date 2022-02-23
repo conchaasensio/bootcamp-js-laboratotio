@@ -31,10 +31,19 @@ body {
 .hotel-description {
   font-size: 1.25rem;
   font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hotel-telephone {
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 700;
+}
+
+.hotel-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
