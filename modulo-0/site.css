@@ -21,6 +21,10 @@ body {
   justify-content: space-between;
 }
 
+.hotel-name-container {
+  max-width: 300px;
+}
+
 .hotel-name {
   text-transform: uppercase;
   font-size: 2rem;
@@ -28,12 +32,22 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.hotel-description-container {
+  padding-top: 10px;
+  min-width: 300px;
+}
+
 .hotel-description {
   font-size: 1.25rem;
   font-weight: 300;
-  display: flex;
+  /* Así quizá no se necesitaría un contenedor para este elemento.
+   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+}
+
+.hotel-telephone-container {
+  min-width: 250px;
 }
 
 .hotel-telephone {
@@ -43,6 +57,7 @@ body {
 }
 
 .hotel-rating {
+  max-width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
