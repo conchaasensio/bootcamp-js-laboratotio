@@ -10,7 +10,7 @@ body {
 
 .hotels-body {
   margin: auto;
-  min-width: 90%;
+  max-width: 90%;
 }
 
 .hotel-item {
@@ -34,7 +34,7 @@ body {
 
 .hotel-description-container {
   padding-top: 10px;
-  min-width: 300px;
+  max-width: 300px;
 }
 
 .hotel-description {
@@ -47,7 +47,7 @@ body {
 }
 
 .hotel-telephone-container {
-  min-width: 250px;
+  max-width: 250px;
 }
 
 .hotel-telephone {
