@@ -2,60 +2,35 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.hotels-header h2 {
-  padding: 1.25rem;
-  text-align: center;
-  text-transform: capitalize;
-}
-
-.hotels-body {
-  margin: auto;
-  max-width: 90%;
-}
-
-.hotel-item {
-  padding: 1rem;
-  border-radius: 2px;
-  border: 1px solid #9c9c9c;
+.row {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 -16px;
 }
 
-.hotel-name-container {
-  max-width: 300px;
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
 }
 
-.hotel-name {
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-weight: 700;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.hotel-description-container {
-  padding-top: 10px;
-  max-width: 300px;
-}
-
-.hotel-description {
-  font-size: 1.25rem;
-  font-weight: 300;
-  /* Así quizá no se necesitaría un contenedor para este elemento.
-   display: flex;
+.col-50 {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
+  flex: 50%;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
-.hotel-telephone-container {
-  max-width: 250px;
+.image {
+  height: 200px;
+  width: 400px;
 }
 
-.hotel-telephone {
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.hotel-rating {
-  max-width: 100px;
+.hotel-rating span {
+  color: blueviolet;
+  font-size: 15px;
 }
