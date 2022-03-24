@@ -32,14 +32,21 @@ const cart = [
 ];
 
 const cartContainerElement = document.getElementById('js-cart-container');
-const totalCartElement = document.getElementById('js-total-cart');
+const totalCartElement = document.getElementById('js-cart-total');
 const premiumInputElement = document.getElementById('js-premium');
 const shippingCostElement = document.getElementById('js-shipping-cost');
+
+const discount = 0.05;
+let premiumCheck = false;
 
 printCart();
 
 function printCart() {
   let products = cart;
+
+  if (premiumCheck) {
+    products = filterByPremiumProducts();
+  }
 
   const htmlElements = products.map((product) => {
     return `<li>
@@ -53,7 +60,12 @@ function printCart() {
           </li>`;
   });
 
+  shippingCostElement.innerHTML = allProductsArePremium()
+    ? 'Gastos de envío 0'
+    : 'Con gastos de envío';
+
   cartContainerElement.innerHTML = `<ul>${htmlElements.join('')}</ul>`;
+  totalCartElement.innerHTML = getCartTotalPrice(products).toFixed(2);
 }
 
 function handleRemoveProduct(id) {
@@ -67,4 +79,38 @@ function removeProduct(id) {
   if (productIndex != -1) {
     cart.splice(productIndex, 1);
   }
+}
+
+function getPriceForAProduct(product) {
+  return product.price * product.count;
+}
+
+function getPriceForAllProducts(products) {
+  return products.reduce(
+    (acc, product) => acc + getPriceForAProduct(product),
+    0
+  );
+}
+
+function getCartTotalPrice(products) {
+  const cartPrice = getPriceForAllProducts(products);
+
+  return cartPrice > 50 ? applyDiscount(cartPrice, discount) : cartPrice;
+}
+
+function applyDiscount(price, discount) {
+  return price - price * discount;
+}
+
+function filterByPremiumProducts() {
+  return cart.filter((product) => product.premium);
+}
+premiumInputElement.addEventListener('change', (ev) => {
+  premiumCheck = ev.target.checked;
+  printCart();
+  allProductsArePremium();
+});
+
+function allProductsArePremium() {
+  return cart.every((product) => product.premium);
 }
