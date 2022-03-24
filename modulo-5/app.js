@@ -60,7 +60,7 @@ function printCart() {
           </li>`;
   });
 
-  shippingCostElement.innerHTML = allProductsArePremium()
+  shippingCostElement.innerHTML = allProductsArePremium(products)
     ? 'Gastos de envío 0'
     : 'Con gastos de envío';
 
@@ -108,9 +108,8 @@ function filterByPremiumProducts() {
 premiumInputElement.addEventListener('change', (ev) => {
   premiumCheck = ev.target.checked;
   printCart();
-  allProductsArePremium();
 });
 
-function allProductsArePremium() {
-  return cart.every((product) => product.premium);
+function allProductsArePremium(products) {
+  return products.every((product) => product.premium);
 }
