@@ -56,7 +56,7 @@ function searchFullAvailability() {
     for (const person of myTeam) {
       availabilities.push(person.availability[i]);
     }
-    if (availabilities.every((value) => value)) {
+    if (availabilities.every((isAvailable) => isAvailable)) {
       return `Hueco encontrado en el horario ${workHours[i]}`;
     }
   }
