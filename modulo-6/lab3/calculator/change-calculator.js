@@ -6,59 +6,59 @@ const amountInputElement = document.getElementById('amount');
 
 const money = [
   {
-    name: 'doscientos euros',
+    name: '200 euros',
     value: 200,
   },
   {
-    name: 'cien euros',
+    name: '100 euros',
     value: 100,
   },
   {
-    name: 'ciencuenta euros',
+    name: '50 euros',
     value: 50,
   },
   {
-    name: 'veinte euros',
+    name: '20 euros',
     value: 20,
   },
   {
-    name: 'diez euros',
+    name: '10 euros',
     value: 10,
   },
   {
-    name: 'cinco euros',
+    name: '5 euros',
     value: 5,
   },
   {
-    name: 'dos euros',
+    name: '2 euros',
     value: 2,
   },
   {
-    name: 'un euro',
+    name: '1 euro',
     value: 1,
   },
   {
-    name: 'cincuenta centimos',
+    name: '50 céntimos',
     value: 0.5,
   },
   {
-    name: 'veinte centimos',
+    name: '20 céntimos',
     value: 0.2,
   },
   {
-    name: 'diez centimos',
+    name: '10 céntimos',
     value: 0.1,
   },
   {
-    name: 'cinco centimos',
+    name: '5 céntimos',
     value: 0.05,
   },
   {
-    name: 'dos centimos',
+    name: '2 céntimos',
     value: 0.02,
   },
   {
-    name: 'un centimos',
+    name: '1 céntimo',
     value: 0.01,
   },
 ];
