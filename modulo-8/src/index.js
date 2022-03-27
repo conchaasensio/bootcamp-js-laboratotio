@@ -1,3 +1,7 @@
 'use strict';
 
-document.write('Hello Playground!');
+import { printClientsAccounts } from './client-list-business';
+
+window.onload = function () {
+  printClientsAccounts();
+};
