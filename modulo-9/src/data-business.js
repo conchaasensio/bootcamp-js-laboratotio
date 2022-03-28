@@ -7,9 +7,9 @@ const getCharacters = () => {
 };
 
 const getCharacterById = (id) => {
-  return fetch(`${baseUrl}characters/${id}`).then((response) =>
-    response.json()
-  );
+  return fetch(`${baseUrl}characters/${id}`)
+    .then((response) => response.json())
+    .then((data) => data[0]);
 };
 
 export { getCharacters, getCharacterById };
