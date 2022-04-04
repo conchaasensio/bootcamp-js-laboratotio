@@ -2,22 +2,22 @@
 
 const reservations = [
   {
-    tipoHabitacion: 'standard',
+    roomCategory: 'standard',
     pax: 1,
-    noches: 3,
-    precio: 100,
+    nights: 3,
+    price: 100,
   },
   {
-    tipoHabitacion: 'standard',
+    roomCategory: 'standard',
     pax: 1,
-    noches: 4,
-    precio: 100,
+    nights: 4,
+    price: 100,
   },
   {
-    tipoHabitacion: 'suite',
+    roomCategory: 'suite',
     pax: 2,
-    noches: 1,
-    precio: 150,
+    nights: 1,
+    price: 150,
   },
 ];
 
@@ -28,8 +28,22 @@ class ReservationsList {
 
   get subtotal() {
     return this._reservations
-      .map((reservation) => (reservation.precio * reservation.noches + (reservation.pax - 1) * 40) * 1.21)
+      .map((reservation) => this.roomPrice(reservation) * reservation.nights + calculatePricePerPerson(reservation))
       .reduce((a, b) => a + b, 0);
+
+    function calculatePricePerPerson(reservation) {
+      return (reservation.pax - 1) * 40;
+    }
+  }
+
+  roomPrice(reservation) {
+    return reservation.price;
+  }
+
+  get total() {
+    const iva = 1.21;
+
+    return this.subtotal * iva;
   }
 
   set reservations(reservations) {
@@ -37,6 +51,19 @@ class ReservationsList {
   }
 }
 
+class TouristOperator extends ReservationsList {
+  roomPrice(reservation) {
+    return 100;
+  }
+  get subtotal() {
+    return super.subtotal * 0.85;
+  }
+}
+
 const customerReservations = new ReservationsList();
 customerReservations.reservations = reservations;
-console.log('subtotal', customerReservations.subtotal);
+console.log('subtotal', customerReservations.total.toFixed(2));
+
+const touristOperatorReservations = new TouristOperator();
+touristOperatorReservations.reservations = reservations;
+console.log('subtotal', touristOperatorReservations.total.toFixed(2));
