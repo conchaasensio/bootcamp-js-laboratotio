@@ -5,19 +5,16 @@ const reservations = [
     roomCategory: 'standard',
     pax: 1,
     nights: 3,
-    price: 100,
   },
   {
     roomCategory: 'standard',
     pax: 1,
     nights: 4,
-    price: 100,
   },
   {
     roomCategory: 'suite',
     pax: 2,
     nights: 1,
-    price: 150,
   },
 ];
 
@@ -37,7 +34,11 @@ class ReservationsList {
   }
 
   roomPrice(reservation) {
-    return reservation.price;
+    const categoryRoomPrices = {
+      standard: 100,
+      suite: 150,
+    };
+    return categoryRoomPrices[reservation.roomCategory];
   }
 
   get total() {
